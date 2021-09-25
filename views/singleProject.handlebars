@@ -1,0 +1,35 @@
+<section class="pageTitle">
+    <h1>The Tech Blog</h1>
+</section>
+
+<div class="projectCard">
+    <div class="projectTitle">
+        <h2>{{ project.title }}</h2>
+        <h4>Posted by {{ project.user.username }} on {{ formatDate project.dateCreated }}</h3>
+    </div>
+    <p>{{ project.content }}</p>
+</div>
+
+{{#each project.comments as |comment| }}
+{{> comment }}
+{{/each}}
+
+{{#if logged_in}}
+<div class="commentCard">
+    <div class="commentTitle">
+        <h2> </h2>
+    </div>
+    <form class="comment-form">
+        <div class="form-group">
+            <label for="comment-post">Comment</label><br>
+            <input class="form-input" type="text" id="comment-post">
+        </div>
+        <input type="hidden" id="project_id" name="project_id" value="{{ project.id }}">
+        <div class="form-group">
+            <button class="commentBtn" type="submit">Submit</button>
+        </div>
+    </form>
+</div>
+
+<script src="/js/comment.js"></script>
+{{/if}}
