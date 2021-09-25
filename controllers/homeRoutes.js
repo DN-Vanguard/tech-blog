@@ -5,7 +5,7 @@ const serialize = require('../utils/serialize');
 //HOME
 router.get('/', async (req, res) => {
 	try {
-		const ProjectData = await Project.findAll({
+		const projectData = await Project.findAll({
 			include:[
 				{model: User}
 			],
@@ -14,10 +14,10 @@ router.get('/', async (req, res) => {
 			]
 		});
 
-		const Projects = ProjectData.map(serialize);
+		const projects = projectData.map(serialize);
 
 		res.render( 'homepage',{
-			Projects,
+			projects,
 			logged_in: req.session.logged_in
 		});
 
