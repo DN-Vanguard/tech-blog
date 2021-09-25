@@ -1,6 +1,23 @@
+// Required Modules
 const router = require('express').Router();
-const { User } = require('../../models');
+// Required Files
+const { User, Blogpost, Comment } = require('../../models');
 
+// Get all user data with blogposts and comments
+router.get( '/', async (req, res) => {
+	try {
+		const userData = await User.findAll( {
+			include: [
+				{model: Blogpost},
+				{model: Comment}
+			]});
+		res.json(userData);
+	} catch(err) {
+		res.status(500).json(err);
+	}
+});
+
+// Creating new user
 router.post('/', async (req, res) => {
   try {
     const userData = await User.create(req.body);
@@ -16,14 +33,15 @@ router.post('/', async (req, res) => {
   }
 });
 
+// Validation and THEN login
 router.post('/login', async (req, res) => {
   try {
-    const userData = await User.findOne({ where: { email: req.body.email } });
+    const userData = await User.findOne({ where: { username: req.body.username } });
 
     if (!userData) {
       res
         .status(400)
-        .json({ message: 'Incorrect email or password, please try again' });
+        .json({ message: 'Incorrect username or password, please try again' });
       return;
     }
 
@@ -32,7 +50,7 @@ router.post('/login', async (req, res) => {
     if (!validPassword) {
       res
         .status(400)
-        .json({ message: 'Incorrect email or password, please try again' });
+        .json({ message: 'Incorrect username or password, please try again' });
       return;
     }
 
@@ -48,6 +66,7 @@ router.post('/login', async (req, res) => {
   }
 });
 
+// LOGOUT
 router.post('/logout', (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {
