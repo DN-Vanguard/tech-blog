@@ -1,14 +1,14 @@
 // Required Modules
 const router = require('express').Router();
 // Required Files
-const { User, Blogpost, Comment } = require('../../models');
+const { User, Project, Comment } = require('../../models');
 
-// Get all user data with blogposts and comments
+// Get all user data with projects and comments
 router.get( '/', async (req, res) => {
 	try {
 		const userData = await User.findAll( {
 			include: [
-				{model: Blogpost},
+				{model: Project},
 				{model: Comment}
 			]});
 		res.json(userData);

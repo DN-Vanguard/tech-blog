@@ -1,25 +1,35 @@
 const router = require('express').Router();
-const { Project } = require('../../models');
+const { User, Project, Comment } = require('../../models');
+const withAuth = require( '../../utils/auth' );
 
+// GET ALL
 router.post('/', async (req, res) => {
   try {
-    const newProject = await Project.create({
-      ...req.body,
-      user_id: req.session.user_id,
-    });
+		const newProject = await Project.findAll( {
+			include: [
+				{model: User,
+					attributes: ['username']},
+				{model: Comment,
+					include: [
+						{model: User,
+							attributes: ['username']}
+					]}
+			]
+		});
 
-    res.status(200).json(newProject);
-  } catch (err) {
-    res.status(400).json(err);
-  }
-});
+		res.json(newProject);
 
-router.delete('/:id', async (req, res) => {
+	} catch (err) {
+		res.status(500).json(err);
+	}
+} );
+
+// DELETE
+router.delete('/:id', withAuth, async (req, res) => {
   try {
     const projectData = await Project.destroy({
       where: {
         id: req.params.id,
-        user_id: req.session.user_id,
       },
     });
 
