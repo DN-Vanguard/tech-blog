@@ -1,5 +1,5 @@
 {
-  "name": "crowd-funding",
+  "name": "tech-blog",
   "version": "1.0.0",
   "description": "Publishing blog posts and comments built from sequelize, handlebars, and express",
   "main": "server.js",
