@@ -7,11 +7,11 @@ router.get('/:id', async (req, res) => {
 		const projectData = await Project.findByPk(req.params.id, {
 			include:[
 				{model: User,
-					attributes: ['username']},
+					attributes: ['user']},
 				{model: Comment,
 					include: [
 						{model: User,
-							attributes: ['username']}
+							attributes: ['user']}
 					]}
 			]
 		});

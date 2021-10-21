@@ -28,7 +28,7 @@ router.get('/', withAuth, async (req, res) => {
 });
 
 // GET NEW PROJECT
-router.get( '/newproject', withAuth, async (req, res) => {
+router.get( '/newProject', withAuth, async (req, res) => {
 	try {
 
 		res.render('newProject', {

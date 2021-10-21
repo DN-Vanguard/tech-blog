@@ -1,13 +1,13 @@
 [
     {
         "id": 1,
-        "content": "That is awesome!",
+        "description": "WOWOW. That is awesome!",
         "user_id": 1,
         "project_id": 2
     },
     {
         "id": 2,
-        "content": "I know, right?",
+        "description": "I know, right? HAHA",
         "user_id": 2,
         "project_id": 2
     }

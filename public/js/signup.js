@@ -1,15 +1,15 @@
 const signupFormSubmit = async (event) => {
 	event.preventDefault();
 
-	const username = document.querySelector('#username-signup').value.trim();
+	const user = document.querySelector('#user-signup').value.trim();
 	const password = document.querySelector('#password-signup').value.trim();
 
-	if (username && password) {
+	if (user && password) {
 		console.log('@@@@@@@@@@@');
 		const response = await fetch('/api/users', {
 			method: 'POST',
 			body: JSON.stringify({
-				username,
+				user,
 				password
 			}),
 			headers: {'Content-Type': 'application/json'},
@@ -18,7 +18,7 @@ const signupFormSubmit = async (event) => {
 		if (response.ok) {
 			document.location.replace('/dashboard');
 		} else {
-			alert('Please fill in \'Username\' & \'Password\'.\n\'Password\' must be a minimum of 8 characters.');
+			alert('Please fill in \'User\' & \'Password\'.\n\'Password\' must be a minimum of 8 characters.');
 		}
 	}
 };

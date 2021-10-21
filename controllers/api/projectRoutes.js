@@ -8,11 +8,11 @@ router.post('/', async (req, res) => {
 		const newProject = await Project.findAll( {
 			include: [
 				{model: User,
-					attributes: ['username']},
+					attributes: ['user']},
 				{model: Comment,
 					include: [
 						{model: User,
-							attributes: ['username']}
+							attributes: ['user']}
 					]}
 			]
 		});
@@ -30,11 +30,11 @@ router.get( '/:id', async (req, res) => {
 		const newProject = await Project.findByPk(req.params.id, {
 			include: [
 				{model: User,
-					attributes: ['username']},
+					attributes: ['user']},
 				{model: Comment,
 					include: [
 						{model: User,
-							attributes: ['username']}
+							attributes: ['user']}
 					]}
 			]
 		});

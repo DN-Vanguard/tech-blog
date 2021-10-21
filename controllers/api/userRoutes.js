@@ -36,7 +36,7 @@ router.post('/', async (req, res) => {
 // Validation and THEN login
 router.post('/login', async (req, res) => {
   try {
-    const userData = await User.findOne({ where: { username: req.body.username } });
+    const userData = await User.findOne({ where: { user: req.body.user } });
 
     if (!userData) {
       res

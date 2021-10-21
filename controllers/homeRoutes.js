@@ -10,7 +10,7 @@ router.get('/', async (req, res) => {
 				{model: User}
 			],
 			order:[
-				['dateCreated', 'DESC']
+				['date_created', 'DESC']
 			]
 		});
 
