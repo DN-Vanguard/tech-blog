@@ -1,17 +1,18 @@
+// SUBMIT
 const commentFormSubmit = async (event) => {
 	event.preventDefault();
 
 	const content = document.querySelector('#comment-post').value.trim();
-	const project_id = document.querySelector('#project_id').value.trim();
+	const blogpostId = document.querySelector('#blogpostId').value.trim();
 
 	if (content) {
-		const response = await fetch( '/api/blogposts/comment', {
+		const response = await fetch('/api/blogposts/comment', {
 			method: 'POST',
 			body: JSON.stringify({
 				content,
-				project_id
+				blogpostId
 			}),
-			headers: {'Content-Type': 'application/json'},
+			headers: { 'Content-Type': 'application/json' },
 		});
 
 		if (response.ok) {

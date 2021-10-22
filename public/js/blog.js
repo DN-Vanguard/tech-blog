@@ -1,3 +1,4 @@
+// SUBMIT
 const blogpostFormSubmit = async (event) => {
 	event.preventDefault();
 
