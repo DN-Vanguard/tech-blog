@@ -3,14 +3,14 @@
 ## Description
 A tech blog where users can create a profile, and access a dashboard where users discuss their upcoming projects or tech! Feel free to sign up!
 
-[Click here to try out the app!](https://dom-tech-blog.herokuapp.com/)
+[Click here to try out the app!](https://tech-blog-dn.herokuapp.com/)
 
 ![Dashboard View](assets/Dashboard.png)
 ![Make-Post View](assets/Make-Post.png)
 
 ## Instructions
 
-1. [Click here to be directed to the app.](https://dom-tech-blog.herokuapp.com/)
+1. [Click here to be directed to the app.](https://tech-blog-dn.herokuapp.com/)
 2. Make an account by clicking the `sign up` link in the `login` tab.
 3. Once you've made an account, in `dashboard`, create a new post!
 
