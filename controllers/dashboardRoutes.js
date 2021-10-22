@@ -58,4 +58,5 @@ router.get('/:id', withAuth, async (req, res) => {
 	}
 });
 
+// EXPORT
 module.exports = router;

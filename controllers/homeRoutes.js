@@ -46,4 +46,5 @@ router.get('/login', async (req, res) => {
 	res.render('login');
 });
 
+// EXPORT
 module.exports = router;
