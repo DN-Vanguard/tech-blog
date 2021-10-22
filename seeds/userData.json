@@ -2,16 +2,16 @@
   {
     "id": 1,
     "username": "Dom",
-    "password": "password"
+    "password": "password123"
   },
   {
     "id": 2,
     "username": "Lernantino",
-    "password": "password"
+    "password": "password123"
   },
   {
     "id": 3,
     "username": "Amiko",
-    "password": "password"
+    "password": "password123"
   }
 ]
