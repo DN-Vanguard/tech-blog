@@ -1,13 +1,13 @@
 [
     {
         "id": 1,
-        "content": "WOWOW. That is awesome!",
+        "content": "WOWOW. That is so cool! What's next??",
         "userId": 1,
         "blogpostId": 2
     },
     {
         "id": 2,
-        "content": "I know, right? HAHA",
+        "content": "Nice",
         "userId": 2,
         "blogpostId": 2
     }
