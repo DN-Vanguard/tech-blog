@@ -1,80 +1,82 @@
-// Required Modules
 const router = require('express').Router();
-// Required Files
-const { User, Project, Comment } = require('../../models');
+const { User, Blogpost, Comment } = require('../../models');
 
-// Get all user data with projects and comments
-router.get( '/', async (req, res) => {
+// GET ALL
+router.get('/', async (req, res) => {
 	try {
-		const userData = await User.findAll( {
+		const userData = await User.findAll({
 			include: [
-				{model: Project},
-				{model: Comment}
-			]});
+				{ model: Blogpost },
+				{ model: Comment }
+			]
+		});
+
 		res.json(userData);
-	} catch(err) {
+
+	} catch (err) {
 		res.status(500).json(err);
 	}
 });
 
-// Creating new user
+// CREATE
 router.post('/', async (req, res) => {
-  try {
-    const userData = await User.create(req.body);
+	try {
+		const userData = await User.create(req.body);
 
-    req.session.save(() => {
-      req.session.user_id = userData.id;
-      req.session.logged_in = true;
+		req.session.save(() => {
+			req.session.user_id = userData.id;
+			req.session.logged_in = true;
 
-      res.status(200).json(userData);
-    });
-  } catch (err) {
-    res.status(400).json(err);
-  }
+			res.status(200).json(userData);
+		});
+
+	} catch (err) {
+		res.status(400).json(err);
+	}
 });
 
-// Validation and THEN login
+// VALIDATION
 router.post('/login', async (req, res) => {
-  try {
-    const userData = await User.findOne({ where: { user: req.body.user } });
+	try {
+		const userData = await User.findOne({ where: { username: req.body.username } });
 
-    if (!userData) {
-      res
-        .status(400)
-        .json({ message: 'Incorrect username or password, please try again' });
-      return;
-    }
+		if (!userData) {
+			res.status(400).json({ message: 'Incorrect email or password, please try again' });
 
-    const validPassword = await userData.checkPassword(req.body.password);
+			return;
+		}
 
-    if (!validPassword) {
-      res
-        .status(400)
-        .json({ message: 'Incorrect username or password, please try again' });
-      return;
-    }
+		const validPassword = await userData.checkPassword(req.body.password);
 
-    req.session.save(() => {
-      req.session.user_id = userData.id;
-      req.session.logged_in = true;
-      
-      res.json({ user: userData, message: 'You are now logged in!' });
-    });
+		if (!validPassword) {
+			res.status(400).json({ message: 'Incorrect email or password, please try again' });
 
-  } catch (err) {
-    res.status(400).json(err);
-  }
+			return;
+		}
+
+		req.session.save(() => {
+			req.session.user_id = userData.id;
+			req.session.logged_in = true;
+
+			res.json({ user: userData,
+				message: 'You are now logged in!' });
+		});
+
+	} catch (err) {
+		res.status(400).json(err);
+	}
 });
 
 // LOGOUT
 router.post('/logout', (req, res) => {
-  if (req.session.logged_in) {
-    req.session.destroy(() => {
-      res.status(204).end();
-    });
-  } else {
-    res.status(404).end();
-  }
+	if (req.session.logged_in) {
+		req.session.destroy(() => {
+			res.status(204).end();
+		});
+	} else {
+		res.status(404).end();
+	}
 });
 
+// EXPORT
 module.exports = router;
