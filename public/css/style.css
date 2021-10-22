@@ -7,7 +7,7 @@
     --lightColor: lightgrey;
     --overallColor: teal;
     --midColor: #a8a6a7;
-    --darkColor: black;
+    --darkColor: rgb(1, 54, 54);
     --white: white;
   }
   
@@ -183,7 +183,7 @@
   }
   
   .switchLoginSignup {
-    color: blue;
+    color: var(--overallColor);
     margin-left: 15px;
   }
   
