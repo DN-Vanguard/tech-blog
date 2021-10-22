@@ -1,61 +1,66 @@
+// URL localhost:3001/dashboard
+// Required modules
 const router = require( 'express' ).Router();
-const { Project, User } = require( '../models' );
+// Required files
+const { Blogpost, User } = require( '../models' );
 const withAuth = require( '../utils/auth' );
 const serialize = require( '../utils/serialize' );
 
-//DEFAULT
-router.get('/', withAuth, async (req, res) => {
+// Home route
+router.get( '/', withAuth, async ( req, res ) => {
 	try {
-		const projectData = await Project.findAll({
+		const blogpostData = await Blogpost.findAll( {
 			include: [
-				{model: User}
+				{ model: User }
 			],
 			where: {
 				userId: req.session.user_id
 			}
-		});
+		} );
 
-		const project = projectData.map(serialize);
+		const blogposts = blogpostData.map( serialize );
 
-		res.render('dashboard', {
-			project,
+		res.render( 'dashboard', {
+			blogposts,
 			logged_in: req.session.logged_in
-		});
+		} );
 
-	} catch (err) {
-		res.status(500).json(err);
+	} catch ( err ) {
+		res.status( 500 ).json( err );
 	}
-});
+} );
 
-// GET NEW PROJECT
-router.get( '/newProject', withAuth, async (req, res) => {
+// Add new blogpost view
+router.get( '/newpost', withAuth, async ( req, res ) => {
 	try {
 
-		res.render('newProject', {
+		res.render( 'newBlogpost', {
 			logged_in: req.session.logged_in
-		});
+		} );
 
-	} catch (err) {
-		res.status(500).json(err);
+	} catch ( err ) {
+		res.status( 500 ).json( err );
 	}
-});
+} );
 
-// EDIT
-router.get('/:id', withAuth, async (req, res) => {
+// Edit blogpost view
+router.get( '/:id', withAuth, async ( req, res ) => {
 	try {
 
-		const projectData = await Project.findByPk(req.params.id);
+		const blogpostData = await Blogpost.findByPk( req.params.id );
 
-		const project = projectData.get( {plain: true });
+		const blogpost = blogpostData.get( { plain: true } );
 
-		res.render('editProject', {
-			project,
+		res.render( 'editBlogpost', {
+			blogpost,
 			logged_in: req.session.logged_in
-		});
+		} );
 
-	} catch (err) {
-		res.status(500).json(err);
+	} catch ( err ) {
+		res.status( 500 ).json( err );
 	}
-});
+} );
 
+
+// Export
 module.exports = router;
