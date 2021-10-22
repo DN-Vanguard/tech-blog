@@ -6,8 +6,14 @@ A tech blog where users can create a profile, and access a dashboard where users
 [Click here to try out the app!](https://dom-tech-blog.herokuapp.com/)
 
 ![Dashboard View](assets/Dashboard.png)
-![Comments View](assets/Comments.png)
 ![Make-Post View](assets/Make-Post.png)
+
+## Instructions
+
+1. [Click here to be directed to the app.](https://dom-tech-blog.herokuapp.com/)
+2. Make an account by clicking the `sign up` link in the `login` tab.
+3. Once you've made an account, in `dashboard`, create a new post!
+
 ## User Story
 
 ```md
@@ -16,7 +22,7 @@ I WANT a CMS-style blog site
 SO THAT I can publish articles, blog posts, and my thoughts and opinions
 ```
 
-## Acceptance Criteria
+## Thought Process
 
 ```md
 GIVEN a CMS-style blog site
