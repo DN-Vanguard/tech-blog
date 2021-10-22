@@ -1,3 +1,3 @@
-const serialize = serializeRow => serializeRow.get( { plain: true } );
+const serialize = serializeRow => serializeRow.get({ plain: true });
 
 module.exports = serialize;
