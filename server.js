@@ -6,7 +6,7 @@ const routes = require('./controllers');
 const helpers = require('./utils/helpers');
 const sequelize = require('./config/connection');
 
-// SET UP
+// SEQUELIZE
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 // EXPRESS AND PORTS
