@@ -1,5 +1,10 @@
 # Tech-Blog
 
+## Description
+A tech blog where users can create a profile, and access a dashboard where users discuss their upcoming projects or tech! Feel free to sign up!
+
+[Click here to try out the app!](https://dom-tech-blog.herokuapp.com/)
+
 ## User Story
 
 ```md
