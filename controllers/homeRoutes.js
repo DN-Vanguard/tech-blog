@@ -1,23 +1,24 @@
 const router = require('express').Router();
-const {User, Project} = require('../models');
+// Required files
+const { User, Blogpost } = require('../models');
 const serialize = require('../utils/serialize');
 
-//HOME
+// HOME
 router.get('/', async (req, res) => {
 	try {
-		const projectData = await Project.findAll({
-			include:[
-				{model: User}
+		const blogpostData = await Blogpost.findAll({
+			include: [
+				{ model: User }
 			],
-			order:[
-				['date_created', 'DESC']
+			order: [
+				[ 'dateCreated', 'DESC' ]
 			]
 		});
 
-		const projects = projectData.map(serialize);
+		const blogposts = blogpostData.map(serialize);
 
-		res.render( 'homepage',{
-			projects,
+		res.render('homepage', {
+			blogposts,
 			logged_in: req.session.logged_in
 		});
 
@@ -26,7 +27,7 @@ router.get('/', async (req, res) => {
 	}
 });
 
-//SIGNUP
+// SIGN UP
 router.get('/signup', async (req, res) => {
 	if (req.session.logged_in) {
 		res.redirect('/');
@@ -36,7 +37,7 @@ router.get('/signup', async (req, res) => {
 	res.render('signup');
 });
 
-//LOGIN
+// LOGIN
 router.get('/login', async (req, res) => {
 	if (req.session.logged_in) {
 		res.redirect('/');

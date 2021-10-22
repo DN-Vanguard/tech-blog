@@ -1,5 +1,4 @@
 const router = require('express').Router();
-// Required files
 const { Blogpost, User } = require('../models');
 const withAuth = require('../utils/auth');
 const serialize = require('../utils/serialize');
