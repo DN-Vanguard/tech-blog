@@ -5,6 +5,9 @@ A tech blog where users can create a profile, and access a dashboard where users
 
 [Click here to try out the app!](https://dom-tech-blog.herokuapp.com/)
 
+![Dashboard View](assets/Dashboard.png)
+![Comments View](assets/Comments.png)
+![Make-Post View](assets/Make-Post.png)
 ## User Story
 
 ```md
