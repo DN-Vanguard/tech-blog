@@ -3,7 +3,7 @@ const { Blogpost, User } = require('../models');
 const withAuth = require('../utils/auth');
 const serialize = require('../utils/serialize');
 
-// DEFAULT
+// DASHBOARD
 router.get('/', withAuth, async (req, res) => {
 	try {
 		const blogpostData = await Blogpost.findAll({
