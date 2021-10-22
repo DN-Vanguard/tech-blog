@@ -1,14 +1,14 @@
 [
     {
         "id": 1,
-        "description": "WOWOW. That is awesome!",
-        "user_id": 1,
-        "project_id": 2
+        "content": "WOWOW. That is awesome!",
+        "userId": 1,
+        "blogpostId": 2
     },
     {
         "id": 2,
-        "description": "I know, right? HAHA",
-        "user_id": 2,
-        "project_id": 2
+        "content": "I know, right? HAHA",
+        "userId": 2,
+        "blogpostId": 2
     }
 ]

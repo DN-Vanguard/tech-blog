@@ -4,11 +4,11 @@
   }
   
   :root {
-    --lightColor: #eae1d2;
-    --darkColor: #101024;
+    --lightColor: lightgrey;
+    --overallColor: teal;
     --midColor: #a8a6a7;
-    --darkerMidColor: #666;
-    --almostWhite: #e6e6e6;
+    --darkColor: black;
+    --white: white;
   }
   
   html {
@@ -20,7 +20,7 @@
   }
   
   header {
-    background-color: var(--darkColor);
+    background-color: var(--overallColor);
   }
   
   a,
@@ -38,7 +38,7 @@
   }
   
   .pageTitle {
-    background-color: var(--darkColor);
+    background-color: var(--overallColor);
     padding: 15px 0 35px 0;
   }
   
@@ -48,7 +48,7 @@
     margin-left: 60px;
     padding: 5px 15px;
     border-radius: 8px;
-    color: var(--darkColor);
+    color: var(--overallColor);
     background-color: var(--lightColor);
     font-weight: 700;
     box-shadow: 5px 5px var(--midColor);
@@ -57,7 +57,7 @@
   .blogpostCard,
   .commentCard {
     margin: 24px 50px;
-    border: solid 4px var(--darkColor);
+    border: solid 4px var(--overallColor);
     border-radius: 4px;
   }
   
@@ -66,7 +66,7 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    background-color: var(--darkColor);
+    background-color: var(--overallColor);
   }
   
   .commentTitle {
@@ -96,9 +96,9 @@
   
   .dashView {
     margin: 24px 50px;
-    border: solid 4px var(--darkerMidColor);
+    border: solid 4px var(--darkColor);
     border-radius: 10px;
-    background-color: var(--darkerMidColor);
+    background-color: var(--darkColor);
   }
   
   .dashView .blogpostTitle {
@@ -106,7 +106,7 @@
   }
   
   .dashView .blogpostTitle h2 {
-    color: var(--almostWhite);
+    color: var(--white);
     margin-bottom: 6px;
   }
   
@@ -116,9 +116,9 @@
     display: block;
     text-align: center;
     width: fit-content;
-    background-color: var(--darkColor);
+    background-color: var(--overallColor);
     border: none;
-    color: var(--almostWhite);
+    color: var(--white);
     font-size: 1.8rem;
     padding: 10px 20px;
     border-radius: 10px;
@@ -126,7 +126,7 @@
   }
   
   #newPostBtn:hover {
-    background-color: var(--darkerMidColor);
+    background-color: var(--darkColor);
     transition: background-color 0.3s;
   }
   
@@ -168,8 +168,8 @@
   .commentBtn,
   .createPostBtn,
   .deletePostBtn {
-    background-color: var(--darkerMidColor);
-    color: var(--almostWhite);
+    background-color: var(--darkColor);
+    color: var(--white);
     border-radius: 8px;
     transition: background-color 0.3s;
   }
@@ -178,7 +178,7 @@
   .commentBtn:hover,
   .createPostBtn:hover,
   .deletePostBtn:hover {
-    background-color: var(--darkColor);
+    background-color: var(--overallColor);
     transition: background-color 0.3s;
   }
   
