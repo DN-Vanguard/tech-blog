@@ -2,27 +2,27 @@
     <h1>Your Dashboard</h1>
 </section>
 
-<div class="projectCard">
-    <div class="projectTitle">
+<div class="blogpostCard">
+    <div class="blogpostTitle">
         <h2>Edit Post</h2>
     </div>
     <form class="post-form">
         <div class="form-group">
             <label for="title-new">Title</label><br>
-            <input class="form-input" type="text" id="title-new" value="{{ project.title }}">
+            <input class="form-input" type="text" id="title-new" value="{{ blogpost.title }}">
         </div>
         <div class="form-group">
             <label for="content-new">Content</label><br>
-            <textarea name="content-new" id="content-new">{{ project.content }}</textarea>
+            <textarea name="content-new" id="content-new">{{ blogpost.content }}</textarea>
         </div>
-        <input type="hidden" id="project_id" name="project_id" value="{{ project.id }}">
+        <input type="hidden" id="blogpostId" name="blogpostId" value="{{ blogpost.id }}">
         <div class="form-group">
             <button class="createPostBtn" type="submit">Update Post</button>
         </div>
     </form>
     <div class="form-group">
-        <button id="deletePostBtn" class="deletePostBtn" type="submit" value="{{ project.id }}">Delete</button>
+        <button id="deletePostBtn" class="deletePostBtn" type="submit" value="{{ blogpost.id }}">Delete</button>
     </div>
 </div>
 
-<script src="/js/projectEdit.js"></script>
+<script src="/js/blogpostEdit.js"></script>
